@@ -1,4 +1,3 @@
-// http://www.gulpjs.com.cn/docs/recipes/running-task-steps-per-folder/
 var gulp = require('gulp');
 var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
@@ -52,7 +51,6 @@ gulp.task('del-hbs', function() {
     return gulp.src([tplBaseDir + '**/*.js'], { read: false }).pipe(clean());
 });
 gulp.task('hbs-compile', ['del-hbs'], function() {
-    // var folders = getFolders(tplBaseDir);
     var hbsTask = taskLoop(tplBaseDir, function(folder) {
         var spath = path.join(tplBaseDir, folder, '/[^_]*.hbs');
         return gulp.src(spath)
@@ -80,8 +78,6 @@ gulp.task('hbs-compile', ['del-hbs'], function() {
             .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
                 imports: {
                     processPartialName: function(fileName) {
-                        // Strip the extension and the underscore
-                        // Escape the output with JSON.stringify
                         return JSON.stringify(path.basename(fileName, '.js').substr(1));
                     }
                 }
@@ -103,12 +99,6 @@ gulp.task('ctpl', ['hbs-merge'], function() {
     return gulp.src([tplBaseDir + '**/*.js', '!' + tplBaseDir + '**/entry.js'], { read: false }).pipe(clean());
 });
 gulp.task('hbs', ['ctpl'], function() {
-    // var folders = getFolders(tplBaseDir);
-// var tasks = folders.map(function(folder) {
-//     var filePath = path.join(tplBaseDir, folder, '/entry.js');
-//     return hbsAmdWrap(filePath, path.join(tplBaseDir, folder, '/hbs.js'));
-// });
-
     taskLoop(tplBaseDir, function(folder) {
         var filePath = path.join(tplBaseDir, folder, '/entry.js');
         return hbsAmdWrap(filePath, path.join(tplBaseDir, folder, '/hbs.js'));
