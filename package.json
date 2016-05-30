@@ -1,0 +1,33 @@
+{
+  "name": "gulp-hbs",
+  "version": "1.0.0",
+  "description": "gulp handlebars demo",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "glob": "^7.0.3",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
+    "gulp-wrap": "^0.13.0",
+    "handlebars": "^2.0.0",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "gulp hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xiaomingming/gulp-handlebars.git"
+  },
+  "keywords": [
+    "gulp-handlebars",
+    "handlebars",
+    "gulp"
+  ],
+  "author": "leweiming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaomingming/gulp-handlebars/issues"
+  },
+  "homepage": "https://github.com/xiaomingming/gulp-handlebars#readme"
+}
