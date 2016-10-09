@@ -1,5 +1,6 @@
 # gulp-handlebars
 **此后不再维护此项目，决定放弃handlebars模板了。**
+
 本项目提供`gulp-handlebars`按目录预编译hbs的，并封装为`amd`格式的模块的示例。
 
 之前用过`grunt-contrib-handlebars`,感觉`grunt`的组件成熟度比较高，质量很好，而`gulp`相关组件就让人觉得相当不靠谱了。
